@@ -1,0 +1,11 @@
+image:
+  repository: ghcr.io/rameshwar-sre/sample-argocd-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+
+ingress:
+  enabled: false
