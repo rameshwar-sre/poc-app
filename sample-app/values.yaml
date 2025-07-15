@@ -1,7 +1,7 @@
 replicaCount: 5
 
 image:
-  repository: nginx
+  repository: docker.io/lingxiankong/hello-openstack
   tag: latest
   pullPolicy: Always
 
