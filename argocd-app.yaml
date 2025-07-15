@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/rameshwar-sre/YOUR_REPO_NAME.git
+    repoURL: https://github.com/rameshwar-sre/poc-app.git
     targetRevision: HEAD
     path: sample-app
     helm:
