@@ -1,8 +1,8 @@
 replicaCount: 5
 
 image:
-  repository: rameshwar18/sample-argocd-app
-  tag: test
+  repository: httpd
+  tag: latest
   pullPolicy: Always
 
 imagePullSecrets: []
@@ -22,7 +22,7 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 3000
+  port: 80
   nodePort: 32000
 
 ingress:
