@@ -2,7 +2,7 @@ replicaCount: 5
 
 image:
   repository: rameshwar18/sample-argocd-app
-  tag: test14
+  tag: test
   pullPolicy: Always
 
 imagePullSecrets: []
