@@ -6,14 +6,14 @@ Generate app name
 {{- end }}
 
 {{/*
-Generate full name with release name
+Generate full name
 */}}
 {{- define "sample-app.fullname" -}}
 {{- printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" -}}
 {{- end }}
 
 {{/*
-Generate standard labels
+Standard labels
 */}}
 {{- define "sample-app.labels" -}}
 app.kubernetes.io/name: {{ include "sample-app.name" . }}
@@ -23,9 +23,20 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{/*
-Generate selector labels
+Selector labels
 */}}
 {{- define "sample-app.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "sample-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Service Account Name
+*/}}
+{{- define "sample-app.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "sample-app.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+default
+{{- end }}
 {{- end }}
