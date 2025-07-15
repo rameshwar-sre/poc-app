@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: nginx-test  # Namespace (will be auto-created if using ArgoCD)
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.25  # Official NGINX image
+        ports:
+        - containerPort: 80
+---
+# Optional: Add a Service to expose NGINX
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: nginx-test
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP  # Change to `LoadBalancer` for external access
