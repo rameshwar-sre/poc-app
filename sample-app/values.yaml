@@ -1,7 +1,7 @@
 replicaCount: 5
 
 image:
-  repository: nginx
+  repository: rameshwar18/sample-argocd-app
   tag: latest
   pullPolicy: Always
 
